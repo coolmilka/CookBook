@@ -9,7 +9,7 @@ import { SwipeableDrawer, List, ListItemText, ListItem } from '@material-ui/core
 const links = [
   { title: 'Dodaj przepis', route: '/add-recipe' },
   { title: 'Przepisy', route: '/recipes' },
-  { title: 'Twoje przepisy', route: 'your-recipes' },
+  { title: 'Twoje przepisy', route: '/your-recipes' },
 ]
 
 const Drawer = props => {
