@@ -3,6 +3,9 @@ import { connect } from 'react-redux'
 
 import { InputAdornment, TextField } from '@material-ui/core'
 
+import Ingredients from '../components/Ingredients'
+import { ImportExportOutlined } from '@material-ui/icons'
+
 const MAX_NAME_LENGTH = 45
 const MIN_NAME_LENGTH = 3
 const MIN_DESCRIPTION_LENGTH = 20
@@ -82,6 +85,9 @@ const AddRecipe = props => {
             helperText: 'Zbyt krótka nazwa, minimum 3 znaki'
         },
         {
+            label: 'Składniki',
+        },
+        {
             label: 'Sposób przyrządzenia',
             value: description,
             onChange: setValidDescription,
@@ -117,7 +123,11 @@ const AddRecipe = props => {
         <div
             style={styles.div}>
 
-            {inputs.map(input => (
+            {inputs.map(input => input.label === 'Składniki' ?
+            <Ingredients
+            key={input.label}
+            />
+            :
             <TextField
                 key={input.label}
                 style={styles.input}
@@ -139,7 +149,7 @@ const AddRecipe = props => {
                 InputProps={input.InputProps}
                 placeholder={input.placeholder}
             />
-            ))}
+            )}
         </div>
     )
 }
