@@ -75,6 +75,10 @@ const AddRecipe = props => {
         return isError
         }
 
+    const [ingredients, setIngredients] = React.useState([])
+
+    console.log(ingredients);
+
     const inputs = [
         {
             label: 'Nazwa',
@@ -126,6 +130,8 @@ const AddRecipe = props => {
             {inputs.map(input => input.label === 'Składniki' ?
             <Ingredients
             key={input.label}
+            ingredients={ingredients}
+            setIngredients={setIngredients}
             />
             :
             <TextField
