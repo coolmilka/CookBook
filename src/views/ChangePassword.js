@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
-const ChangePassword = props => {
-    return(
-        <div>
-            Zmień hasło
-        </div>
-    )
-}
+const ChangePassword = (props) => {
+  return <div>Zmień hasło</div>;
+};
 
-export default ChangePassword
+export default ChangePassword;

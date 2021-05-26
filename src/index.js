@@ -1,14 +1,13 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from "react";
+import ReactDOM from "react-dom";
 
-import { Provider } from 'react-redux'
-import { store } from './store'
+import { Provider } from "react-redux";
+import { store } from "./store";
 
-import { MuiThemeProvider } from '@material-ui/core/styles'
-import theme from './theme.js'
+import { MuiThemeProvider } from "@material-ui/core/styles";
+import theme from "./theme.js";
 
-import App from './App'
-
+import App from "./App";
 
 // test snackbars
 
@@ -23,10 +22,10 @@ import App from './App'
 //window.removeCircural = () => store.dispatch(circuralProgress.remove())
 
 ReactDOM.render(
-    <Provider store={store}>
-        <MuiThemeProvider theme={theme}>
-            <App />
-        </MuiThemeProvider>
-    </Provider>,
-    document.getElementById('root')
-)
+  <Provider store={store}>
+    <MuiThemeProvider theme={theme}>
+      <App />
+    </MuiThemeProvider>
+  </Provider>,
+  document.getElementById("root")
+);

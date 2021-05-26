@@ -1,18 +1,18 @@
-import React from 'react'
-import { connect } from 'react-redux'
+import React from "react";
+import { connect } from "react-redux";
 
-import { Snackbar, SnackbarContent } from '@material-ui/core'
+import { Snackbar, SnackbarContent } from "@material-ui/core";
 
-const Snackbars = props => {
+const Snackbars = (props) => {
   return (
     <div>
       {props._bars.map((el, index) => (
         <Snackbar
-          style={{ position: 'fixed', bottom: (30 + 70 * index) }}
+          style={{ position: "fixed", bottom: 30 + 70 * index }}
           key={el.key}
           anchorOrigin={{
-            vertical: 'bottom',
-            horizontal: 'left',
+            vertical: "bottom",
+            horizontal: "left",
           }}
           open={true}
         >
@@ -23,13 +23,11 @@ const Snackbars = props => {
         </Snackbar>
       ))}
     </div>
-  )
-}
+  );
+};
 
-const mapStateToProps = state => ({
-  _bars: state.snackbars.bars
-})
+const mapStateToProps = (state) => ({
+  _bars: state.snackbars.bars,
+});
 
-export default connect(
-  mapStateToProps
-)(Snackbars)
+export default connect(mapStateToProps)(Snackbars);

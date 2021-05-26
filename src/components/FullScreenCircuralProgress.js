@@ -1,42 +1,33 @@
-import React from 'react'
+import React from "react";
 
-import { connect } from 'react-redux'
-import { CircularProgress } from '@material-ui/core'
+import { connect } from "react-redux";
+import { CircularProgress } from "@material-ui/core";
 
 const styles = {
   div: {
-    position: 'fixed',
+    position: "fixed",
     left: 0,
     top: 0,
-    width: '100vw',
-    height: '100vh',
-    backgroundColor: 'rgba(36, 41, 41, 0.8)',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
+    width: "100vw",
+    height: "100vh",
+    backgroundColor: "rgba(36, 41, 41, 0.8)",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   },
-  circular: {color: '#191919'}
-}
+  circular: { color: "#191919" },
+};
 
-const FullScreenCircuralProgress = props => {
-  return(
-    props._isOpen.length > 0 ?
-      <div style={styles.div}>
-        <CircularProgress
-          style={styles.circular}
-          size={100}
-        />
-      </div>
-      :
-      null
-  )
-}
+const FullScreenCircuralProgress = (props) => {
+  return props._isOpen.length > 0 ? (
+    <div style={styles.div}>
+      <CircularProgress style={styles.circular} size={100} />
+    </div>
+  ) : null;
+};
 
-const mapStateToProps = state => ({
-  _isOpen: state.fullScreenCircuralProgress.circurals
-})
+const mapStateToProps = (state) => ({
+  _isOpen: state.fullScreenCircuralProgress.circurals,
+});
 
-
-export default connect(
-  mapStateToProps,
-) (FullScreenCircuralProgress)
+export default connect(mapStateToProps)(FullScreenCircuralProgress);

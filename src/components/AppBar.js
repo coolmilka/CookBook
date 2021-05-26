@@ -1,39 +1,39 @@
-import React from 'react'
-import { withRouter, Link } from 'react-router-dom'
+import React from "react";
+import { withRouter, Link } from "react-router-dom";
 
-import { connect } from 'react-redux'
-import { openDrawerActionCreator } from '../state/drawer'
+import { connect } from "react-redux";
+import { openDrawerActionCreator } from "../state/drawer";
 
-import AppBar from '@material-ui/core/AppBar'
-import Toolbar from '@material-ui/core/Toolbar'
-import IconButton from '@material-ui/core/IconButton'
-import MenuIcon from '@material-ui/icons/Menu'
-import MenuItem from '@material-ui/core/MenuItem'
-import Menu from '@material-ui/core/Menu'
-import SettingsIcon from '@material-ui/icons/Settings'
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import IconButton from "@material-ui/core/IconButton";
+import MenuIcon from "@material-ui/icons/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
+import Menu from "@material-ui/core/Menu";
+import SettingsIcon from "@material-ui/icons/Settings";
 
-import logo from '../img/logo.png'
+import logo from "../img/logo.png";
 
 const styles = {
-  toolbar: { justifyContent: 'space-between' },
-  logo: { cursor: 'pointer' },
-  link: { textDecoration: 'none', color: 'black' }
-}
+  toolbar: { justifyContent: "space-between" },
+  logo: { cursor: "pointer" },
+  link: { textDecoration: "none", color: "black" },
+};
 
-const MenuAppBar = props => {
-  const [anchorEl, setAnchorEl] = React.useState(null)
-  const open = Boolean(anchorEl)
+const MenuAppBar = (props) => {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
 
-  const handleMenu = event => {
-    setAnchorEl(event.currentTarget)
-  }
+  const handleMenu = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
 
   const handleClose = () => {
-    setAnchorEl(null)
-  }
+    setAnchorEl(null);
+  };
 
   return (
-    <div >
+    <div>
       <AppBar position="static">
         <Toolbar style={styles.toolbar}>
           <IconButton
@@ -45,10 +45,10 @@ const MenuAppBar = props => {
             <MenuIcon />
           </IconButton>
           <img
-            onClick={() => props.history.push('/')}
+            onClick={() => props.history.push("/")}
             style={styles.logo}
             src={logo}
-            alt='logo'
+            alt="logo"
           />
           <div>
             <IconButton
@@ -64,36 +64,33 @@ const MenuAppBar = props => {
               id="menu-appbar"
               anchorEl={anchorEl}
               anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
+                vertical: "top",
+                horizontal: "right",
               }}
               keepMounted
               transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
+                vertical: "top",
+                horizontal: "right",
               }}
               open={open}
               onClose={handleClose}
             >
-              <Link to='/change-password' style={styles.link}>
+              <Link to="/change-password" style={styles.link}>
                 <MenuItem onClick={handleClose}>Zmień hasło</MenuItem>
               </Link>
-              <Link to='/' style={styles.link}>
+              <Link to="/" style={styles.link}>
                 <MenuItem onClick={props._logOut}>Wyloguj się</MenuItem>
               </Link>
             </Menu>
           </div>
         </Toolbar>
       </AppBar>
-    </div >
-  )
-}
+    </div>
+  );
+};
 
 const mapDispatchToProps = (dispatch) => ({
   _drawerOpen: () => dispatch(openDrawerActionCreator()),
-})
+});
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(withRouter(MenuAppBar))
+export default connect(null, mapDispatchToProps)(withRouter(MenuAppBar));
