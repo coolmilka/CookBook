@@ -1,8 +1,13 @@
 import React from "react";
 
 import { connect } from "react-redux";
-
 import { getRecipesAsyncActionCreator } from "../state/recipes";
+import { Typography } from "@material-ui/core";
+import RecipeList from "../components/RecipeList";
+
+const styles = {
+  refresh: { cursor: "pointer", color: "blue" },
+};
 
 class UserRecipes extends React.Component {
   state = {};
@@ -16,11 +21,36 @@ class UserRecipes extends React.Component {
   };
 
   render() {
-    return <div></div>;
+    if (this.props._isError) {
+      return (
+        <div>
+          <Typography variant="h4" align="center" color="error">
+            Nie udało się pobrać przepisów
+          </Typography>
+          <Typography
+            style={styles.refresh}
+            variant="h4"
+            align="center"
+            onClick={this.getData}
+          >
+            Odśwież
+          </Typography>
+        </div>
+      );
+    }
+
+    return (
+      <div>
+        <RecipeList data={this.props.recipes} />
+      </div>
+    );
   }
 }
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => ({
+  _isError: state.recipes.isError,
+  _recipes: state.recipes.recipes,
+});
 
 const mapDispatchToProps = (dispatch) => ({
   _getData: () => dispatch(getRecipesAsyncActionCreator()),
