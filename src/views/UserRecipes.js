@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { getRecipesAsyncActionCreator } from "../state/recipes";
 import { Typography } from "@material-ui/core";
 import RecipeList from "../components/RecipeList";
+import SingleRecipe from "./SingleRecipe";
 
 const styles = {
   refresh: { cursor: "pointer", color: "blue" },
@@ -39,9 +40,22 @@ class UserRecipes extends React.Component {
       );
     }
 
+    if(this.props.match.params.id) {
+      const recipe = this.props._recipes.find(el => el.key === this.props.match.params.id)
+      return <SingleRecipe
+      data={recipe}
+      param={this.props.match.params.id}
+      back={() => this.props.history.push('/your-recipes')}
+      />
+    }
+
     return (
       <div>
-        <RecipeList data={this.props._recipes} />
+        <RecipeList
+        data={this.props._recipes}
+        route='/your-recipes'
+        changeRoute={this.props.history.push}
+        />
       </div>
     );
   }

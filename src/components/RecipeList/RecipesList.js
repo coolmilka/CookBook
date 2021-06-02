@@ -16,7 +16,12 @@ const RecipesList = (props) => {
   return (
     <div style={styles.container}>
       {props.data.map((recipe) => (
-        <RecipesListItem key={recipe.key} data={recipe} />
+        <RecipesListItem
+        key={recipe.key}
+        data={recipe}
+        route={props.route}
+        changeRoute={props.changeRoute}
+        />
       ))}
     </div>
   );

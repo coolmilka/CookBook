@@ -40,7 +40,16 @@ const styles = {
 
 const RecipeListItem = (props) => {
   return (
-    <div style={styles.container}>
+    <div
+    style={styles.container}
+    onClick={() => {
+      props.changeRoute(props.route+'/'+props.data.key)
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      })
+    }}
+    >
       <img
         style={styles.img}
         className={"recipe-list-item__img"}
