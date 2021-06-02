@@ -1,30 +1,25 @@
-import React from 'react'
+import React from "react";
 
-import RecipesListItem from './RecipesListItem'
+import RecipesListItem from "./RecipesListItem";
 
 const styles = {
   container: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "center",
     maxWidth: 800,
-    margin: 'auto'
+    margin: "auto",
   },
-}
+};
 
-const RecipesList = props => {
+const RecipesList = (props) => {
   return (
     <div style={styles.container}>
-      {props.data.map(recipe => (
-        <RecipesListItem
-          key={recipe.key}
-          data={recipe}
-          route={props.route}
-          changeRoute={props.changeRoute}
-        />
+      {props.data.map((recipe) => (
+        <RecipesListItem key={recipe.key} data={recipe} />
       ))}
     </div>
-  )
-}
+  );
+};
 
-export default RecipesList
+export default RecipesList;

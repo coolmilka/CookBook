@@ -41,7 +41,7 @@ class UserRecipes extends React.Component {
 
     return (
       <div>
-        <RecipeList data={this.props.recipes} />
+        <RecipeList data={this.props._recipes} />
       </div>
     );
   }
@@ -49,7 +49,7 @@ class UserRecipes extends React.Component {
 
 const mapStateToProps = (state) => ({
   _isError: state.recipes.isError,
-  _recipes: state.recipes.recipes,
+  _recipes: state.recipes.recipes
 });
 
 const mapDispatchToProps = (dispatch) => ({

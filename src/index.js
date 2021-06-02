@@ -9,6 +9,8 @@ import theme from "./theme.js";
 
 import App from "./App";
 
+import './main.css'
+
 // test snackbars
 
 //import {addSnackbar} from './state/snackbar'
